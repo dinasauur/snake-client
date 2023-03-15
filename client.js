@@ -12,6 +12,17 @@ const connect = function () {
     console.log('server says: ', data);
   });
 
+  // Client to send a reply back
+  conn.on('connect', () => {
+    console.log('Successfully connected to game server');
+    conn.write('Name: DIN');
+  });
+  // Note - conn.write sends the message to the server, so of you want a message to show for us, use console.log, 
+  // also, having two conn.write might mess things up because doing this command 2 times in a row only does the first one.
+  // Because the server is actually parsing our strings and does something when it gets a particular command or message
+  // so sending it anything else probably won't do anything, but worst case scenario, might mess things up
+
+
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
