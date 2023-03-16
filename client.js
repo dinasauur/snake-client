@@ -1,16 +1,17 @@
 const net = require("net");
 
-
 // ESTABLISH A CONNECTION WITH THE SERVER
 // We returned a conn object from the connect function that allowed us to interact with the server.
 
-const connect = function (hostIp, portNum) {
+const connect = function(hostIp, portNum) {
   const conn = net.createConnection({
     host: hostIp ,// IP address here,
     port: portNum// PORT number here,
   });
 
   // HANDLE INCOMING DATA
+  // event handler is saying if there is data, then we want to print out the data that the server sent over.
+  // the data passed inside the parameter is built-in
   conn.on('data', (data) => {
     console.log('server says: ', data);
   });
@@ -25,7 +26,8 @@ const connect = function (hostIp, portNum) {
     }, 50);
   */
   });
-  // Note - conn.write sends the message to the server, so of you want a message to show for us, use console.log, 
+
+  // Note - conn.write sends the message to the server, so of you want a message to show for us, use console.log
   // also, having two conn.write might mess things up because doing this command 2 times in a row only does the first one.
   // Because the server is actually parsing our strings and does something when it gets a particular command or message
   // so sending it anything else probably won't do anything, but worst case scenario, might mess things up

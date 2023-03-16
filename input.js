@@ -15,41 +15,42 @@ const setupInput = function(conn) {
   stdin.resume();
   connection = conn;
 
-  // HANDLING CTRL + C USER INPUT
   //// Register an event listener for stdin. The listener will use a function called handleUserInput that runs when you receive input from your keyboard
-
   stdin.on('data', handleUserInput);
-  
+
   return stdin;
 };
 
 // SECOND STEP - The stdin object returned by setupInput will allow us to listen for keyboard input and react to it.
+// The key passed inside the parameter is built-in;
+
 const handleUserInput = function(key) {
-    if (key === 'm') {
-      connection.write('Say: mango sago bbt 4 lyfe <3')
-    };
+  if (key === 'm') {
+    connection.write('Say: mango sago bbt 4 lyfe <3');
+  }
 
-    if (key === 'w') {
-      connection.write('Move: up')
-    };
+  if (key === 'w') {
+    connection.write('Move: up');
+  }
 
-    if (key === 'a') {
-      connection.write('Move: left')
-    };
+  if (key === 'a') {
+    connection.write('Move: left');
+  }
 
-    if (key === 's') {
-      connection.write('Move: down')
-    };
+  if (key === 's') {
+    connection.write('Move: down');
+  }
 
-    if (key === 'd') {
-      connection.write('Move: right')
-    };
+  if (key === 'd') {
+    connection.write('Move: right');
+  }
 
-    if (key === '\u0003') {
-      process.exit();
-    };
+
+  // HANDLING CTRL + C USER INPUT
+  if (key === '\u0003') {
+    process.exit();
+  }
 };
-
 
 module.exports = {
   setupInput
