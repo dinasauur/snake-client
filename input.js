@@ -1,4 +1,3 @@
-
 // THIRD STEP
 //// How can your input module send messages to the server without a connection object? It can't!
 //// You need to allow the connection object to have access to the data coming in from the keyboard.
@@ -27,6 +26,10 @@ const setupInput = function(conn) {
 // SECOND STEP - The stdin object returned by setupInput will allow us to listen for keyboard input and react to it.
 const handleUserInput = function() {
   process.stdin.on('data', (conn) => {
+    if (conn === 'm') {
+      connection.write('Say: mango sago bbt 4 lyfe <3')
+    };
+
     if (conn === 'w') {
       connection.write('Move: up')
     };

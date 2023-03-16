@@ -1,12 +1,13 @@
 const net = require("net");
 
+
 // ESTABLISH A CONNECTION WITH THE SERVER
 // We returned a conn object from the connect function that allowed us to interact with the server.
 
-const connect = function () {
+const connect = function (hostIp, portNum) {
   const conn = net.createConnection({
-    host: '165.227.47.243' ,// IP address here,
-    port: 50541// PORT number here,
+    host: hostIp ,// IP address here,
+    port: portNum// PORT number here,
   });
 
   // HANDLE INCOMING DATA
