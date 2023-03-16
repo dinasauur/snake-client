@@ -29,9 +29,6 @@ const connect = function () {
   // Because the server is actually parsing our strings and does something when it gets a particular command or message
   // so sending it anything else probably won't do anything, but worst case scenario, might mess things up
 
-  // SETUP INTERFACE TO HANDLE USER INPUT FROM STDIN
-  //// The stdin object returned by setupInput will allow us to listen for keyboard input and react to it.
-
 
   // INTERPRET INCOMING DATA AS TEXT
   conn.setEncoding("utf8");
@@ -39,7 +36,9 @@ const connect = function () {
   return conn;
 };
 
-module.exports = {connect};
+module.exports = {
+  connect
+};
 
 /* You used Node's net library (specifically, the createConnection function) to create an object named conn in the code above.
 The conn object that Node returned to you represents the connection that you have with the server.
