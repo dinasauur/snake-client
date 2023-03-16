@@ -1,6 +1,8 @@
 const net = require("net");
 
 // ESTABLISH A CONNECTION WITH THE SERVER
+// We returned a conn object from the connect function that allowed us to interact with the server.
+
 const connect = function () {
   const conn = net.createConnection({
     host: '165.227.47.243' ,// IP address here,
@@ -16,12 +18,10 @@ const connect = function () {
   conn.on('connect', () => {
     console.log('Successfully connected to game server');
     conn.write('Name: DIN');
-    
     /*
     setInterval(() => {
       conn.write('Move: left');
     }, 50);
-
   */
   });
   // Note - conn.write sends the message to the server, so of you want a message to show for us, use console.log, 
@@ -29,16 +29,31 @@ const connect = function () {
   // Because the server is actually parsing our strings and does something when it gets a particular command or message
   // so sending it anything else probably won't do anything, but worst case scenario, might mess things up
 
+  // SETUP INTERFACE TO HANDLE USER INPUT FROM STDIN
+  //// The stdin object returned by setupInput will allow us to listen for keyboard input and react to it.
+
+
   // INTERPRET INCOMING DATA AS TEXT
   conn.setEncoding("utf8");
 
   return conn;
 };
 
-connect();
-
-module.exports = connect;
+module.exports = {connect};
 
 /* You used Node's net library (specifically, the createConnection function) to create an object named conn in the code above.
 The conn object that Node returned to you represents the connection that you have with the server.
 The conn object is full of useful methods and properties that can now be used to interact with the server! */
+
+
+
+
+
+
+
+
+
+
+
+
+
