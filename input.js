@@ -24,32 +24,30 @@ const setupInput = function(conn) {
 };
 
 // SECOND STEP - The stdin object returned by setupInput will allow us to listen for keyboard input and react to it.
-const handleUserInput = function() {
-  process.stdin.on('data', (conn) => {
-    if (conn === 'm') {
+const handleUserInput = function(key) {
+    if (key === 'm') {
       connection.write('Say: mango sago bbt 4 lyfe <3')
     };
 
-    if (conn === 'w') {
+    if (key === 'w') {
       connection.write('Move: up')
     };
 
-    if (conn === 'a') {
+    if (key === 'a') {
       connection.write('Move: left')
     };
 
-    if (conn === 's') {
+    if (key === 's') {
       connection.write('Move: down')
     };
 
-    if (conn === 'd') {
+    if (key === 'd') {
       connection.write('Move: right')
     };
 
-    if (conn === '\u0003') {
+    if (key === '\u0003') {
       process.exit();
     };
-  });
 };
 
 
