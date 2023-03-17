@@ -4,6 +4,8 @@ const net = require("net");
 // We returned a conn object from the connect function that allowed us to interact with the server.
 
 const connect = function(hostIp, portNum) {
+  console.log("Connecting ...");
+  
   const conn = net.createConnection({
     host: hostIp ,// IP address here,
     port: portNum// PORT number here,

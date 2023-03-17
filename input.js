@@ -16,7 +16,7 @@ const setupInput = function(conn) {
   connection = conn;
 
   //// Register an event listener for stdin. The listener will use a function called handleUserInput that runs when you receive input from your keyboard
-  stdin.on('data', handleUserInput);
+  stdin.on('data', handleUserInput); // this handleUserInput is NOT a callback. Because it is not being called as a parameter. We just want toe value of this function.
 
   return stdin;
 };
